@@ -364,9 +364,13 @@ const createTableChatLi = (data) => {
     TotalMarksRow.appendChild(TotalMarksTd1);
     TotalMarksRow.appendChild(TotalMarksTd2);
     tableContent.appendChild(TotalMarksRow);
-
-
-
+    const ResultRow=document.createElement("tr");
+    const ResultTd1=document.createElement("td");
+    const ResultTd2=document.createElement("td");
+    ResultTd1.textContent="Result";
+    ResultTd2.textContent=data.Result;
+    tableContent.appendChild(ResultRow);
+    
     return tableChatLi;
 };
 
