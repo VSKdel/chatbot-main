@@ -182,7 +182,7 @@ header h2 {
 
 table,tr,td{
   border: 0.5px solid black;
-  text-align: center;
+  /* text-align: center; */
   padding: 5px;
 }
 

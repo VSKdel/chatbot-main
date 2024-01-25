@@ -17,7 +17,7 @@ app.get('/api/school', async (req, res) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-
+    console.log(data);
     res.json(data);
   } catch (error) {
     console.error('Fetch error:', error);
@@ -34,8 +34,8 @@ app.get('/api/student', async (req, res) => {
     const data = await response.json();
 
 
-    // console.log("In server");
-    // console.log(data);
+    console.log("In server");
+    console.log(data);
     res.json(data);
   } catch (error) {
     console.error('Fetch error:', error);

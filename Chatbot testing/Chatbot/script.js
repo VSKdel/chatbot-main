@@ -305,9 +305,17 @@ const createTableChatLi = (data) => {
     // Add rows for studentid, session, class_desc, Result, and Grand_Total
     const headerRows = ['Subject','Total'];
     
-    const tableHeader=document.createElement("th");
+    const tableHeader=document.createElement("tr");
     tableHeader.textContent="StudentId: "+data.studentid;
     tableContent.appendChild(tableHeader)
+    
+    const tableHeader1=document.createElement("tr");
+    tableHeader1.textContent="Class: "+data.class_desc;
+    tableContent.appendChild(tableHeader1)
+    
+    const tableHeader2=document.createElement("tr");
+    tableHeader2.textContent="Session: "+data.session;
+    tableContent.appendChild(tableHeader2)
 
     try{
         const headerRow=document.createElement("tr");
@@ -331,7 +339,7 @@ const createTableChatLi = (data) => {
     const nonNullSubKeys = Object.keys(data)
         .filter((key) => key.startsWith("Sub") && data[key] !== null);
 
-    let totalMarks=0;
+    
 
     nonNullSubKeys.forEach((subKey) => {
         const totalKey = `Total${subKey.slice(3)}`;
@@ -343,7 +351,6 @@ const createTableChatLi = (data) => {
 
         const totalCell = document.createElement("td");
         totalCell.textContent = data[totalKey];
-        totalMarks+=data[totalKey]
         row.appendChild(subCell);
         row.appendChild(totalCell);
 
@@ -360,7 +367,7 @@ const createTableChatLi = (data) => {
     const TotalMarksTd1=document.createElement("td");
     const TotalMarksTd2=document.createElement("td");
     TotalMarksTd1.textContent="Grand Total";
-    TotalMarksTd2.textContent=totalMarks;
+    TotalMarksTd2.textContent=data.Grand_Total;
     TotalMarksRow.appendChild(TotalMarksTd1);
     TotalMarksRow.appendChild(TotalMarksTd2);
     tableContent.appendChild(TotalMarksRow);
@@ -369,6 +376,8 @@ const createTableChatLi = (data) => {
     const ResultTd2=document.createElement("td");
     ResultTd1.textContent="Result";
     ResultTd2.textContent=data.Result;
+    ResultRow.appendChild(ResultTd1);
+    ResultRow.appendChild(ResultTd2);
     tableContent.appendChild(ResultRow);
     
     return tableChatLi;
